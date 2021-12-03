@@ -1,26 +1,15 @@
 package com.example.loanpredictionusingml;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ScrollView;
-import android.widget.Toast;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-import org.json.JSONException;
-import org.json.JSONObject;
-import java.util.HashMap;
+import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
 public class predictionML extends AppCompatActivity
 {
-    JsonObjectRequest jsonObjectRequest;
     TextView txt;
     EditText edit1;
     TextView text1;
@@ -46,7 +35,6 @@ public class predictionML extends AppCompatActivity
     TextView text10;
     Button button;
     ScrollView scroll;
-    RequestQueue queue;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -55,11 +43,8 @@ public class predictionML extends AppCompatActivity
     }
     public void sendData(View view)
     {
-        HashMap<String, Integer> data = new HashMap<>();
-        String url="http://127.0.0.1:8000";
-        queue = Volley.newRequestQueue(this);
         txt=(TextView) findViewById(R.id.textView);
-        edit1=(EditText) findViewById(R.id.editTextNumber0);
+        edit1=(EditText) findViewById(R.id.editTextNumber);
         int e1=Integer.parseInt(String.valueOf(edit1.getText()));
         text1=(TextView) findViewById(R.id.textView0);
         edit2=(EditText) findViewById(R.id.editTextNumber1);
@@ -94,45 +79,62 @@ public class predictionML extends AppCompatActivity
         button=(Button) findViewById(R.id.button);
         scroll=(ScrollView) findViewById(R.id.scrollView);
 
-        data.put("edit1",e1);
-        data.put("edit2",e2);
-        data.put("edit3",e3);
-        data.put("edit4",e4);
-        data.put("edit5",e5);
-        data.put("edit6",e6);
-        data.put("edit7",e7);
-        data.put("edit8",e8);
-        data.put("edit9",e9);
-        data.put("edit10",e10);
-
-
-        jsonObjectRequest = new JsonObjectRequest
-                (Request.Method.POST, url, new JSONObject(data), new Response.Listener<JSONObject>()
-                {
-                    @Override
-                    public void onResponse(JSONObject response)
-                    {
-                        String ans = null;
-                        try
-                        {
-                            ans = response.getString("ans"); //I'll take out the value whose key is ans
-                        }
-                        catch (JSONException e)
-                        {
-                            e.printStackTrace();
-                        }
-                        Toast.makeText(getApplicationContext(),ans,Toast.LENGTH_LONG).show();
-                    }
-                }, new Response.ErrorListener()
-                {
-                    @Override
-                    public void onErrorResponse(VolleyError error)
-                    {
-                        // TODO: Handle error
-                        Toast.makeText(getApplicationContext(),"Opps something went wrong",Toast.LENGTH_LONG).show();
-                    }
-
-                });
-        queue.add(jsonObjectRequest);
     }
+    private boolean validateEmail() {
+        String email = emailId.getText().toString().trim();
+
+        if (email.isEmpty() || !isValidEmail(email)) {
+            emailId.setError("Email is not valid.");
+            emailId.requestFocus();
+            return false;
+        }
+
+        return true;
+    }
+
+    private static boolean isValidEmail(String email) {
+        return !TextUtils.isEmpty(email) && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
+
+    private boolean validate(EditText editText) {
+        // check the lenght of the enter data in EditText and give error if its empty
+        if (editText.getText().toString().trim().length() > 0) {
+            return true; // returns true if field is not empty
+        }
+        editText.setError("Please Fill This");
+        editText.requestFocus();
+        return false;
+    }
+
+    private void signUp() {
+        // display a progress dialog
+        final ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
+        progressDialog.setCancelable(false); // set cancelable to false
+        progressDialog.setMessage("Please Wait"); // set message
+        progressDialog.show(); // show progress dialog
+
+        // Api is a class in which we define a method getClient() that returns the API Interface class object
+        // registration is a POST request type method in which we are sending our field's data
+        // enqueue is used for callback response and error
+        (Api.getClient().registration(name.getText().toString().trim(),
+                emailId.getText().toString().trim(),
+                password.getText().toString().trim(),
+                "email")).enqueue(new Callback<Response>() {
+            @Override
+            public void onResponse(Call<Response> call, Response<Response> response) {
+                signUpResponsesData = response.body();
+                Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
+
+            }
+
+            @Override
+            public void onFailure(Call<Response> call, Throwable t) {
+                Log.d("response", t.getStackTrace().toString());
+                progressDialog.dismiss();
+
+            }
+        });
+    }
+
 }

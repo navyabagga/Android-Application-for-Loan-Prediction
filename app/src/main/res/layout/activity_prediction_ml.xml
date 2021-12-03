@@ -51,16 +51,16 @@
 
 
             <EditText
-                android:id="@+id/editTextNumber0"
+                android:id="@+id/editTextNumber"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:background="#FFFFFF"
                 android:ems="10"
-                android:selectAllOnFocus="true"
                 android:inputType="number"
-                android:textColor="#000000"
+                android:selectAllOnFocus="true"
                 android:text="Enter the Gender"
                 android:textAlignment="center"
+                android:textColor="#000000"
                 android:textSize="20sp"
                 android:visibility="visible"
                 tools:layout_editor_absoluteX="85dp"
