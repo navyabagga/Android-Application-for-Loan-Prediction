@@ -1,21 +1,25 @@
 package com.example.loanpredictionusingml;
 import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 public interface ApiInterface {
     @FormUrlEncoded
     @POST("/retrofit/register.php")
-        // API's endpoints
-    Call<Response> registration(@Field("gender") Integer gender,
-                                      @Field("married") Integer married,
-                                      @Field("dependents") Integer dependents,
-                                      @Field("education") Integer education,
-                                      @Field("self_employed") Integer self_employed,
-                                      @Field("applicant income") Integer applicant_income,
-                                      @Field("coapplicant income") Integer coapplicant_income,
-                                      @Field("loan amount") Integer loan_amt,
-                                      @Field("loan amount term") Integer loan_amt_term,
-                                      @Field("credit history") Integer credit_history,
-                                      @Field("property area") Integer property_area);
+
+    Call<Response> registration(@Field("gender") Number gender,
+                                      @Field("married") Number married,
+                                      @Field("dependents") Number dependents,
+                                      @Field("education") Number education,
+                                      @Field("self_employed") Number self_employed,
+                                      @Field("applicant income") Number applicant_income,
+                                      @Field("coapplicant income") Number coapplicant_income,
+                                      @Field("loan amount") Number loan_amt,
+                                      @Field("loan amount term") Number loan_amt_term,
+                                      @Field("credit history") Number credit_history,
+                                      @Field("property area") Number property_area,
+    Callback<Response> callback);
+
+
 }

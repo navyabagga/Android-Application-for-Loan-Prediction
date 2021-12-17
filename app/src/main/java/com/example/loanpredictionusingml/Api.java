@@ -4,11 +4,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Api {
     private static Retrofit retrofit = null;
     public static ApiInterface getClient() {
-
-        // change your base URL
         if (retrofit==null) {
             retrofit = new Retrofit.Builder()
-                    .baseUrl("https://mobileappdatabase.in/")
+                    .baseUrl("https://loan-prediction-fast-api.herokuapp.com/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }

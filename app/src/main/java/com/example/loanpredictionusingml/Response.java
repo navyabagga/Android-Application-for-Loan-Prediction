@@ -113,10 +113,10 @@ public class Response {
     {
         this.property_area = property_area;
     }
+
     public Map<String, Object> getAdditionalProperties() {
         return this.additionalProperties;
     }
-
     public void setAdditionalProperties(String name, Object value) {
         this.additionalProperties.put(name, value);
     }
