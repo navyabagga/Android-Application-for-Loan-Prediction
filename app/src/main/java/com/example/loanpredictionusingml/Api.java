@@ -6,7 +6,7 @@ public class Api {
     public static ApiInterface getClient() {
         if (retrofit==null) {
             retrofit = new Retrofit.Builder()
-                    .baseUrl("https://loan-prediction-fast-api.herokuapp.com/")
+                    .baseUrl("https://loan-prediction-fast-api.herokuapp.com")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }

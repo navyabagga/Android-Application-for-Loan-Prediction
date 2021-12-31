@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/bagga/AndroidStudioProjects/LoanPredictionusingML/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Users/bagga/AndroidStudioProjects/LoanPredictionusingML/app/src/main/res/layout/activity_can_be_sanctioned.xml" value="0.1" />
         <entry key="..\:/Users/bagga/AndroidStudioProjects/LoanPredictionusingML/app/src/main/res/layout/activity_can_not_be_sanctioned.xml" value="0.1" />
         <entry key="..\:/Users/bagga/AndroidStudioProjects/LoanPredictionusingML/app/src/main/res/layout/activity_main.xml" value="0.10666666666666667" />
