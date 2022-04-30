@@ -1,7 +1,6 @@
-package com.example.loanpredictionusingml;
-import java.util.HashMap;
-import java.util.Map;
-public class Response {
+package com.example.loanpredictionusingml.network;
+public class UserListResponse
+{
     private Integer gender;
     private Integer married;
     private Integer dependents;
@@ -13,7 +12,22 @@ public class Response {
     private Integer loan_amt_term;
     private Integer credit_history;
     private Integer property_area;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    public UserListResponse(int gender,int married,int dependents,int education,int self_employed,int applicant_income,
+                            int coapplicant_income,int loan_amt,int loan_amt_term,int credit_history,int property_area)
+    {
+        this.gender = gender;
+        this.married = married;
+        this.dependents = dependents;
+        this.education = education;
+        this.self_employed = self_employed;
+        this.applicant_income = applicant_income;
+        this.coapplicant_income= coapplicant_income;
+        this.loan_amt = loan_amt;
+        this.loan_amt_term = loan_amt_term;
+        this.credit_history = credit_history;
+        this.property_area = property_area;
+
+    }
     //Gender
     public Integer getGender()
     {
@@ -112,13 +126,6 @@ public class Response {
     public void setProperty_area(Integer property_area)
     {
         this.property_area = property_area;
-    }
-
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-    public void setAdditionalProperties(String name, Object value) {
-        this.additionalProperties.put(name, value);
     }
 
 }

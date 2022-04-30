@@ -1,11 +1,14 @@
-package com.example.loanpredictionusingml;
+package com.example.loanpredictionusingml.Activity;
 
 import android.os.Bundle;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class canBeSanctioned extends AppCompatActivity {
+import com.example.loanpredictionusingml.R;
+
+public class CanBeSanctionedActivity extends AppCompatActivity
+{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

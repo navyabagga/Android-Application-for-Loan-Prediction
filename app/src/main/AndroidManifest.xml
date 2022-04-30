@@ -12,13 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoanPredictionUsingML">
         <activity
-            android:name=".canNotBeSanctioned"
+            android:name=".Activity.CanNotBeSanctionedActivity"
             android:exported="false" />
         <activity
-            android:name=".predictionML"
+            android:name=".Activity.PredictionMLActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

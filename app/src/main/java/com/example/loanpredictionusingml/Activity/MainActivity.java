@@ -1,4 +1,4 @@
-package com.example.loanpredictionusingml;
+package com.example.loanpredictionusingml.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.loanpredictionusingml.R;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -34,7 +36,7 @@ public class MainActivity extends AppCompatActivity
     }
     public void openNewActivity()
     {
-        Intent intent = new Intent(this, predictionML.class);
+        Intent intent = new Intent(this, PredictionMLActivity.class);
         startActivity(intent);
     }
 }

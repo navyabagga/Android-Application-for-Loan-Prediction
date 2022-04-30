@@ -8,7 +8,7 @@
     android:textAlignment="center"
     android:textDirection="firstStrongRtl"
     android:visibility="visible"
-    tools:context=".predictionML">
+    tools:context=".Activity.PredictionMLActivity">
 
     <TextView
         android:id="@+id/textView"
@@ -331,13 +331,42 @@
                 tools:layout_editor_absoluteY="252dp" />
 
             <EditText
+                android:id="@+id/editTextNumber66"
+                android:layout_width="match_parent"
+                android:layout_height="61dp"
+                android:textColor="#000000"
+                android:background="#FFFFFF"
+                android:ems="10"
+                android:selectAllOnFocus="true"
+                android:inputType="number"
+                android:text="Enter the Credit History"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:visibility="visible"
+                tools:layout_editor_absoluteX="85dp"
+                tools:layout_editor_absoluteY="204dp" />
+
+            <TextView
+                android:id="@+id/textView66"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Enter 1 if you have taken a Loan before else Enter 0"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textStyle="normal|bold"
+                android:visibility="visible"
+                tools:layout_editor_absoluteX="64dp"
+                tools:layout_editor_absoluteY="252dp" />
+
+            <EditText
                 android:id="@+id/editTextNumber78"
                 android:layout_width="match_parent"
                 android:layout_height="61dp"
                 android:background="#FFFFFF"
-                android:selectAllOnFocus="true"
                 android:ems="10"
                 android:inputType="number"
+                android:selectAllOnFocus="true"
                 android:text="Enter your Property Area"
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -350,7 +379,7 @@
                 android:id="@+id/textView8"
                 android:layout_width="wrap_content"
                 android:layout_height="75dp"
-                android:text="Enter 0 for Rural Area, 1 for Semi-Urban Area and 2 for Urban Area"
+                android:text="Enter 0 for Rural Area, 1 for Semi-Urban Area and \n 2 for Urban Area"
                 android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textSize="16sp"
@@ -384,7 +413,7 @@
                 android:textStyle="normal|bold"
                 android:visibility="visible"
                 tools:layout_editor_absoluteX="35dp"
-                tools:layout_editor_absoluteY="627dp" />
+                tools:layout_editor_absoluteY="800dp" />
 
 
         </LinearLayout>
