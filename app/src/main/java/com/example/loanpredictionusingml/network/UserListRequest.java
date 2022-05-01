@@ -1,19 +1,33 @@
 package com.example.loanpredictionusingml.network;
-public class UserListResponse
+
+import com.google.gson.annotations.SerializedName;
+public class UserListRequest
 {
+
+    @SerializedName("Gender")
     private Integer gender;
+    @SerializedName("Married")
     private Integer married;
+    @SerializedName("Dependent")
     private Integer dependents;
+    @SerializedName("Education")
     private Integer education;
+    @SerializedName("Self_Employed")
     private Integer self_employed;
+    @SerializedName("ApplicantIncome")
     private Integer applicant_income;
+    @SerializedName("CoapplicantIncome")
     private Integer coapplicant_income;
+    @SerializedName("LoanAmount")
     private Integer loan_amt;
+    @SerializedName("Loan_Amount_Term")
     private Integer loan_amt_term;
+    @SerializedName("Credit_History")
     private Integer credit_history;
+    @SerializedName("Property_Area")
     private Integer property_area;
-    public UserListResponse(int gender,int married,int dependents,int education,int self_employed,int applicant_income,
-                            int coapplicant_income,int loan_amt,int loan_amt_term,int credit_history,int property_area)
+    public UserListRequest(int gender, int married, int dependents, int education, int self_employed, int applicant_income,
+                           int coapplicant_income, int loan_amt, int loan_amt_term, int credit_history, int property_area)
     {
         this.gender = gender;
         this.married = married;
